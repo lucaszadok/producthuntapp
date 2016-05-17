@@ -1,0 +1,8 @@
+$enable-flex: true;
+
+@import "../../node_modules/bootstrap/scss/mixins",
+        "../../node_modules/bootstrap/scss/bootstrap-reboot",
+        "../../node_modules/bootstrap/scss/bootstrap-grid",
+        "../../node_modules/bootstrap/scss/utilities",
+        "../../node_modules/bootstrap/scss/buttons",
+        "../../node_modules/bootstrap/scss/type";
