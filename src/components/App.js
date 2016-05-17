@@ -5,6 +5,8 @@ class App extends Component {
     const {apiToken} = this.props.user;
     this.props.getPopularPosts(apiToken);
     this.props.getCategories(apiToken);
+    this.props.getPost(apiToken, 62783);
+    this.props.getComments(apiToken, 62783);
     this.props.getUser(apiToken);
   }
 

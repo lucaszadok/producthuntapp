@@ -6,12 +6,16 @@ import {POSTS_POPULAR_REQUEST,
         POSTS_NEWEST_ERROR,
         POST_REQUEST,
         POST_SUCCESS,
-        POST_ERROR} from '../actions/PostsActionTypes';
+        POST_ERROR,
+        POST_COMMENTS_REQUEST,
+        POST_COMMENTS_SUCCESS,
+        POST_COMMENTS_ERROR} from '../actions/PostsActionTypes';
 
 const initialState = {
   items: [],
   show: {
     item: null,
+    comments: [],
     errors: null,
     isLoading: false
   },
@@ -64,7 +68,7 @@ export default function account(state = initialState, action) {
       return {
         ...state,
         show: {
-          ...state.single,
+          ...state.show,
           errors: null
         },
         isLoading: true
@@ -73,7 +77,7 @@ export default function account(state = initialState, action) {
       return {
         ...state,
         show: {
-          ...state.single,
+          ...state.show,
           item: action.response.post
         },
         isLoading: false
@@ -82,7 +86,34 @@ export default function account(state = initialState, action) {
       return {
         ...state,
         show: {
-          ...state.single,
+          ...state.show,
+          errors: action.errors
+        },
+        isLoading: false
+      };
+    case POST_COMMENTS_REQUEST:
+      return {
+        ...state,
+        show: {
+          ...state.show,
+          errors: null
+        },
+        isLoading: true
+      };
+    case POST_COMMENTS_SUCCESS:
+      return {
+        ...state,
+        show: {
+          ...state.show,
+          item: action.response.post
+        },
+        isLoading: false
+      };
+    case POST_COMMENTS_ERROR:
+      return {
+        ...state,
+        show: {
+          ...state.show,
           errors: action.errors
         },
         isLoading: false
