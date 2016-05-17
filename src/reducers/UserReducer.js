@@ -1,6 +1,7 @@
 import {USER_REQUEST, USER_SUCCESS, USER_ERROR} from '../actions/UserActionTypes';
 
 const initialState = {
+  apiToken: 'd2db31394a41571c21d297edcd2201c234d6feacf50e111ccc71328404bbf393',
   isLoading: false
 };
 
