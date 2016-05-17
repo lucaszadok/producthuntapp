@@ -4,6 +4,7 @@ class App extends Component {
   componentWillMount() {
     const {apiToken} = this.props.user;
     this.props.getPopularPosts(apiToken);
+    this.props.getCategories(apiToken);
     this.props.getUser(apiToken);
   }
 
