@@ -35,12 +35,11 @@ function callApi(endpoint, config) {
         return Promise.reject(json);
       }
 
-      const camelizedJson = camelizeKeys(json);
       const nextPageUrl = getNextPageUrl(response);
 
       return Object.assign({},
-        camelizedJson,
-        { nextPageUrl }
+        json,
+        {nextPageUrl}
       );
     });
 }
@@ -56,7 +55,7 @@ export default store => next => action => {
     return next(action);
   }
 
-  let { endpoint } = callAPI;
+  let {endpoint} = callAPI;
   const { types, config = {} } = callAPI;
 
   if (typeof endpoint === 'function') {
@@ -79,8 +78,8 @@ export default store => next => action => {
     return finalAction;
   }
 
-  const [ requestType, successType, failureType ] = types;
-  next(actionWith({ type: requestType }));
+  const [requestType, successType, failureType] = types;
+  next(actionWith({type: requestType}));
 
   return callApi(endpoint, config).then(
     response => next(actionWith({

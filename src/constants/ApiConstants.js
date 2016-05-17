@@ -1,5 +1,1 @@
-const API_ROOT = '//api.signal.surf/';
-
-export {
-  API_ROOT
-};
+export const API_ROOT = '/api/v1/';
