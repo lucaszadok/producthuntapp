@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import {Link} from 'react-router';
 import HeaderContainer from '../containers/HeaderContainer';
 import FeedContainer from '../containers/FeedContainer';
 import CategoriesMenuContainer from '../containers/CategoriesMenuContainer';
@@ -13,10 +14,10 @@ const App = ({children}) => {
             <FeedContainer />
           </div>
           <div className="col-md-3 col-lg-2 col-md-pull-9 col-lg-pull-8">
-            <ul className="list-unstyled">
-              <li>Home</li>
-              <li>Collections</li>
-              <li>LIVE Chats</li>
+            <ul className="list-unstyled sidebar-menu">
+              <li><Link to={'/'}>Home</Link></li>
+              <li><Link to={'/Collections'}>Collections</Link></li>
+              <li><Link to={'/LIVE-Chats'}>LIVE Chats</Link></li>
             </ul>
             <CategoriesMenuContainer />
           </div>

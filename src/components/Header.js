@@ -53,7 +53,7 @@ class Header extends Component {
                               arrowOffsetTop={30}
                               positionTop={40}
                               overlay={
-                                <Popover>
+                                <Popover id="profile-popover">
                                   <ul className="list-unstyled popover-menu">
                                     <li className="popover-menu-item">
                                       <a href="/@lucsbarros">My Profile</a>

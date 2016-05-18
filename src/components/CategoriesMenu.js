@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 class CategoriesMenu extends Component {
   componentWillMount() {
@@ -11,11 +12,13 @@ class CategoriesMenu extends Component {
     return (
       <div>
         <h3 className="sidebar-title">Categories</h3>
-        <ul className="list-unstyled">
+        <ul className="list-unstyled sidebar-menu">
           {categories.items.map((category, key) => {
             return (
               <li key={key}>
-                {category.name}
+                <Link to={`/${category.name}`}>
+                  {category.name}
+                </Link>
               </li>
             )
           })}

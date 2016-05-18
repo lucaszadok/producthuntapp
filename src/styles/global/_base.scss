@@ -39,6 +39,20 @@ body {
 
 .sidebar {
   &-title {
-    font-size: 1.25rem;
+    border-bottom: 1px solid #f2f2f2;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  &-menu {
+    font-size: 0.85rem;
+    color: #999;
+
+    a {
+      color: #999;
+    }
   }
 }
