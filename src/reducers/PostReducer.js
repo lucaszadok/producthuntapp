@@ -11,6 +11,7 @@ export default function account(state = initialState, action) {
     case POST_REQUEST:
       return {
         ...state,
+        item: null,
         errors: null,
         isLoading: true
       };

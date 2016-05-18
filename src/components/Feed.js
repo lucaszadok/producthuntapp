@@ -2,10 +2,16 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 
 import PostGroupItem from './PostGroupItem';
+import PostModal from './PostModal';
 
 class Feed extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      productModal: {
+        opened: false
+      }
+    };
   }
 
   componentWillMount() {
@@ -30,16 +36,30 @@ class Feed extends Component {
     this.props.getNewestPosts(apiToken);
   }
 
+  handleModalClose(e) {
+    this.setState({
+      productModal: {
+        opened: false
+      }
+    });
+  }
+
   displayProductModal(id) {
     return e => {
-      console.log('ID', id)
+      e.preventDefault();
+      const {apiToken} = this.props;
       this.props.getPost(apiToken, id);
       this.props.getComments(apiToken, id);
+      this.setState({
+        productModal: {
+          opened: true
+        }
+      });
     }
   }
 
   render() {
-    const {posts} = this.props;
+    const {posts, post, comments} = this.props;
     return (
       <div>
         {posts.isLoading &&
@@ -78,6 +98,10 @@ class Feed extends Component {
             </ul>
           </section>
         }
+        <PostModal post={post}
+                   comments={comments}
+                   isModalOpened={this.state.productModal.opened}
+                   doCloseModal={this.handleModalClose.bind(this)} />
       </div>
     );
   }

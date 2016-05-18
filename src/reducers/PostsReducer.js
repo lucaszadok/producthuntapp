@@ -64,60 +64,6 @@ export default function account(state = initialState, action) {
         errors: action.errors,
         isLoading: false
       };
-    case POST_REQUEST:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          errors: null
-        },
-        isLoading: true
-      };
-    case POST_SUCCESS:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          item: action.response.post
-        },
-        isLoading: false
-      };
-    case POST_ERROR:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          errors: action.errors
-        },
-        isLoading: false
-      };
-    case POST_COMMENTS_REQUEST:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          errors: null
-        },
-        isLoading: true
-      };
-    case POST_COMMENTS_SUCCESS:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          item: action.response.post
-        },
-        isLoading: false
-      };
-    case POST_COMMENTS_ERROR:
-      return {
-        ...state,
-        show: {
-          ...state.show,
-          errors: action.errors
-        },
-        isLoading: false
-      };
     default:
       return state;
   }

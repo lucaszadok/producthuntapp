@@ -1,0 +1,30 @@
+.comment {
+  &-item {
+    padding: 1rem;
+    position: relative;
+
+    &-thumb {
+      border-radius: 50%;
+      float: left;
+      height: 2rem;
+      margin-right: 1rem;
+      overflow: hidden;
+      width: 2rem;
+
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    &-title {
+
+    }
+
+    &-content {
+      display: block;
+      font-size: 0.85rem;
+      overflow: hidden;
+    }
+  }
+}

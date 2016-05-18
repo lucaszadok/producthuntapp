@@ -1,0 +1,65 @@
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.modal {
+  background: rgba(255,255,255,0.97);
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  &-close {
+    position: absolute;
+    top: 10px;
+    left: 00px;
+    z-index: 200;
+    background: #1E1E1E;
+    border-radius: 0 25px 25px 0;
+    padding: 14px 14px 13px 14px;
+    width: 12px;
+    height: 12px;
+    padding-left: 20px;
+    padding-right: 15px;
+    opacity: 0.5;
+
+    svg {
+      display: block;
+      fill: #fff;
+      height: 12px;
+      transform: translate(-50%, -50%);
+      width: 12px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      background: #bbbbbb;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 12px;
+      left: 40px;
+      padding: 14px 14px 13px 14px;
+      position: absolute;
+      top: 40px;
+      width: 12px;
+      z-index: 200;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: visible;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: white;
+    border-left: 1px solid #f0efef;
+    width: 100%;
+
+    @include media-breakpoint-up(xl) {
+      max-width: 1120px;
+    }
+  }
+}
