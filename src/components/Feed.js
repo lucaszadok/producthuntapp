@@ -30,6 +30,14 @@ class Feed extends Component {
     this.props.getNewestPosts(apiToken);
   }
 
+  displayProductModal(id) {
+    return e => {
+      console.log('ID', id)
+      this.props.getPost(apiToken, id);
+      this.props.getComments(apiToken, id);
+    }
+  }
+
   render() {
     const {posts} = this.props;
     return (
@@ -59,8 +67,10 @@ class Feed extends Component {
               {posts.items.map((post, key) => {
                 return (
                   <li key={key}>
-                    <a className="list-group-item" href="">
-                    <PostGroupItem post={post} />
+                    <a className="list-group-item"
+                       href=""
+                       onClick={this.displayProductModal(post.id)}>
+                      <PostGroupItem post={post} />
                     </a>
                   </li>
                 );
