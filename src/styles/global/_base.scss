@@ -22,3 +22,23 @@ body {
     }
   }
 }
+
+.popover {
+  &.bottom {
+    @extend .popover-bottom;
+  }
+
+  .arrow {
+    @extend .popover-arrow;
+  }
+
+  &-menu {
+    margin: 0;
+  }
+}
+
+.sidebar {
+  &-title {
+    font-size: 1.25rem;
+  }
+}

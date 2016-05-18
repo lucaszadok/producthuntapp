@@ -10,7 +10,7 @@ class CategoriesMenu extends Component {
     const {categories} = this.props;
     return (
       <div>
-        <h3>Categories</h3>
+        <h3 className="sidebar-title">Categories</h3>
         <ul className="list-unstyled">
           {categories.items.map((category, key) => {
             return (

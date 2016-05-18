@@ -1,12 +1,32 @@
 import React, {Component, PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import {Link} from 'react-router';
+import {OverlayTrigger, Popover} from 'react-bootstrap';
 
 import HeaderStyle from '../styles/components/header.scss'
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profile: {
+        show: false
+      }
+    };
+  }
+
   componentWillMount() {
     const {apiToken} = this.props;
     this.props.getUser(apiToken);
+  }
+
+  handleProfileClick(e) {
+    this.setState({
+      profile: {
+        target: e.target,
+        show: !this.state.profile.show
+      }
+    })
   }
 
   render() {
@@ -27,9 +47,39 @@ class Header extends Component {
           </h1>
 
           <div className="header-profile">
-            <div className="header-profile-image">
-              <img src={profile.image} alt={profile.name} />
-            </div>
+              <OverlayTrigger trigger="click"
+                              rootClose
+                              placement="bottom"
+                              arrowOffsetTop={30}
+                              positionTop={40}
+                              overlay={
+                                <Popover>
+                                  <ul className="list-unstyled popover-menu">
+                                    <li className="popover-menu-item">
+                                      <a href="/@lucsbarros">My Profile</a>
+                                    </li>
+                                    <li className="popover-menu-item">
+                                      <a href="/@lucsbarros/collections">My Collections</a>
+                                    </li>
+                                    <li className="popover-menu-item">
+                                      <a href="/my/invites" data-reactid=".0.0.3.1.$2.0">Invites (0)</a>
+                                    </li>
+                                    <li className="popover-menu-item">
+                                      <a href="/my/settings/edit">Settings</a>
+                                    </li>
+                                    <li className="popover-menu-item">
+                                      <a href="/v1/oauth/applications">API Dashboard</a>
+                                    </li>
+                                    <li className="popover-menu-item">
+                                      <a href="/logout">Logout</a>
+                                    </li>
+                                  </ul>
+                                </Popover>
+                              }>
+                <div className="header-profile-image" onClick={this.handleProfileClick.bind(this)}>
+                  <img src={profile.image} alt={profile.name} />
+                </div>
+              </OverlayTrigger>
           </div>
         </div>
       </header>
