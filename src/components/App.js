@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import HeaderContainer from '../containers/HeaderContainer';
+import FeedContainer from '../containers/FeedContainer';
+import CategoriesMenuContainer from '../containers/CategoriesMenuContainer';
 
 class App extends Component {
   componentWillMount() {
     const {apiToken} = this.props;
-    this.props.getPopularPosts(apiToken);
-    this.props.getCategories(apiToken);
     this.props.getPost(apiToken, 62783);
     this.props.getComments(apiToken, 62783);
   }
@@ -15,7 +15,19 @@ class App extends Component {
     return (
       <div>
         <HeaderContainer />
-        <h1>{title}</h1>
+        <div className="row">
+          <div className="col-sm-2">
+            <ul>
+              <li>Home</li>
+              <li>Collections</li>
+              <li>LIVE Chats</li>
+            </ul>
+            <CategoriesMenuContainer />
+          </div>
+          <div className="col-sm-8">
+            <FeedContainer />
+          </div>
+        </div>
         {children}
       </div>
     );
