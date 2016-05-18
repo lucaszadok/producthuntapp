@@ -29,8 +29,8 @@ class Feed extends Component {
         <ul>
           {posts.items.map((post, key) => {
             return (
-              <li>
-                <PostGroupItem post={post} key={key} />
+              <li key={key}>
+                <PostGroupItem post={post} />
               </li>
             );
           })}

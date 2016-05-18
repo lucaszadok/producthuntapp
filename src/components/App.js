@@ -15,20 +15,22 @@ class App extends Component {
     return (
       <div>
         <HeaderContainer />
-        <div className="row">
-          <div className="col-sm-2">
-            <ul>
-              <li>Home</li>
-              <li>Collections</li>
-              <li>LIVE Chats</li>
-            </ul>
-            <CategoriesMenuContainer />
+        <div className="container container-main">
+          <div className="row">
+            <div className="col-sm-2">
+              <ul>
+                <li>Home</li>
+                <li>Collections</li>
+                <li>LIVE Chats</li>
+              </ul>
+              <CategoriesMenuContainer />
+            </div>
+            <div className="col-sm-8">
+              <FeedContainer />
+            </div>
           </div>
-          <div className="col-sm-8">
-            <FeedContainer />
-          </div>
+          {children}
         </div>
-        {children}
       </div>
     );
   }

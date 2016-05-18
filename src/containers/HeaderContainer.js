@@ -7,7 +7,7 @@ import Header from '../components/Header';
 const makeProfileProps = (user = {}) => {
   return {
     name: user.name,
-    image: user['image_url'] ? user['image_url']['30px'] : ''
+    image: user['image_url'] ? user['image_url']['64px'] : ''
   }
 }
 

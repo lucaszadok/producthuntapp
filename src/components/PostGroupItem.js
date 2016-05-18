@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const PostGroupItem = ({post, key}) => {
+const PostGroupItem = ({post}) => {
   return (
-    <article className="posts-group-item" key={key}>
+    <article className="posts-group-item">
       <div className="posts-group-item-thumb">
         <img src={post.thumbnail['image_url']} alt={post.name} />
       </div>
@@ -14,9 +14,9 @@ const PostGroupItem = ({post, key}) => {
         <li>Comments: {post['comments_count']}</li>
       </ul>
       <ul>
-        {post.topics.map(topic => {
+        {post.topics.map((topic, key) => {
           return (
-            <li>
+            <li key={key}>
               {topic.name}
             </li>
           );

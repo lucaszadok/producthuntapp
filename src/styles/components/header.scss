@@ -1,0 +1,36 @@
+.header {
+  height: 3rem;
+  padding: 0.5rem;
+
+  &-primary {
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.05), 0 2px 4px 0 rgba(0,0,0,.06);
+    background: #fff;
+  }
+
+  &-brand {
+    display: inline-block;
+    margin: 0;
+
+    svg {
+      display: block;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &-profile {
+    float: right;
+
+    &-image {
+      border-radius: 50%;
+      height: 2rem;
+      overflow: hidden;
+      width: 2rem;
+
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+}
