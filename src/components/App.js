@@ -18,7 +18,7 @@ class App extends Component {
         <div className="container container-main">
           <div className="row">
             <div className="col-sm-2">
-              <ul>
+              <ul className="list-unstyled">
                 <li>Home</li>
                 <li>Collections</li>
                 <li>LIVE Chats</li>

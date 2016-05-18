@@ -1,0 +1,24 @@
+body {
+  background: #f9f9f9;
+}
+
+.container-main {
+  margin-top: 2rem;
+}
+
+.list-unstyled {
+  li {
+    display: block;
+  }
+}
+
+.list-inline {
+  li {
+    display: inline-block;
+    padding-left: 0.5em;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}

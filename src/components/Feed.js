@@ -4,6 +4,10 @@ import {Link} from 'react-router';
 import PostGroupItem from './PostGroupItem';
 
 class Feed extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
     const {apiToken, posts} = this.props;
 
@@ -14,28 +18,57 @@ class Feed extends Component {
     }
   }
 
+  handlePopularClick(e) {
+    e.preventDefault()
+    const {apiToken} = this.props;
+    this.props.getPopularPosts(apiToken);
+  }
+
+  handleNewestClick(e) {
+    e.preventDefault();
+    const {apiToken} = this.props;
+    this.props.getNewestPosts(apiToken);
+  }
+
   render() {
     const {posts} = this.props;
     return (
-      <section>
-        <header>
-          <h3>Today</h3>
-          <ul>
-            <li>Popular</li>
-            <li>Newest</li>
-          </ul>
-        </header>
+      <div>
+        {posts.isLoading &&
+          <div className="card-loading-text">Hunting Down Posts...</div>
+        }
+        {!posts.isLoading &&
+          <section className="card card-default">
+            <header className="card-header">
+              <h3 className="card-title">Today</h3>
+              <ul className="card-header-actions">
+                <li className="card-header-actions-item">
+                  <button className="btn btn-sm btn-link"
+                          onClick={this.handlePopularClick.bind(this)}
+                          disabled={posts.selectedType === 'POPULAR_POSTS'}>Popular</button>
+                </li>
+                <li className="card-header-actions-item">
+                  <button className="btn btn-sm btn-link"
+                          onClick={this.handleNewestClick.bind(this)}
+                          disabled={posts.selectedType === 'NEWEST_POSTS'}>Newest</button>
+                </li>
+              </ul>
+            </header>
 
-        <ul>
-          {posts.items.map((post, key) => {
-            return (
-              <li key={key}>
-                <PostGroupItem post={post} />
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+            <ul className="list-group list-unstyled">
+              {posts.items.map((post, key) => {
+                return (
+                  <li key={key}>
+                    <a className="list-group-item" href="">
+                    <PostGroupItem post={post} />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        }
+      </div>
     );
   }
 }

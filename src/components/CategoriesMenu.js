@@ -11,7 +11,7 @@ class CategoriesMenu extends Component {
     return (
       <div>
         <h3>Categories</h3>
-        <ul>
+        <ul className="list-unstyled">
           {categories.items.map((category, key) => {
             return (
               <li key={key}>
