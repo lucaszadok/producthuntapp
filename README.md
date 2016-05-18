@@ -1,29 +1,54 @@
-# README #
+# Product Hunt Clone Project (React + Redux)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Version
+0.1.0
 
-### What is this repository for? ###
+### Tech
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* [React] - A JavaScript library for building user interfaces.
+* [Redux] - A predictable state container for JavaScript apps.
+* [Webpack] - Module Bundler.
+* [Twitter Bootstrap] - great UI boilerplate for modern web apps.
+* [Sass] - An extension of CSS that adds power and elegance to the basic language.
+* [node.js] - evented I/O for the backend.
+* [Express] - fast node.js network app framework [@tjholowaychuk].
 
-### How do I get set up? ###
+### Development
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+To properly access the Product Hunt API we use a [NGINX] server to make a proxy pass, so you can copy or link our configuration.
 
-### Contribution guidelines ###
+Make Symbolic Link:
+```sh
+$ ln -s producthuntapp/config/nginx/nginx-dev.conf /link/to/your/nginx/server/dev.conf
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+Add path on hosts (/etc/hosts):
+```sh
+dev.producthunt.com 127.0.0.1
+```
 
-### Who do I talk to? ###
+Install Dependencies:
+```sh
+$ npm install
+```
 
-* Repo owner or admin
-* Other community or team contact
+Start the app:
+```sh
+$ npm start
+```
+
+And access dev.producthunt.com (localhost:3000)
+### Todos
+
+ - Write Tests
+ - Implement SignUp/SignIn
+
+
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [express]: <http://expressjs.com>
+   [React]: <https://facebook.github.io/react/>
+   [Redux]: <http://redux.js.org/>
+   [Webpack]: <https://webpack.github.io/>
+   [Sass]: <http://sass-lang.com/>
+   [NGINX]: <http://nginx.org/>
