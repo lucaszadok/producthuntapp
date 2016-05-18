@@ -17,16 +17,16 @@ class App extends Component {
         <HeaderContainer />
         <div className="container container-main">
           <div className="row">
-            <div className="col-sm-2">
+            <div className="col-md-9 col-lg-8 col-md-push-3 col-lg-push-2">
+              <FeedContainer />
+            </div>
+            <div className="col-md-3 col-lg-2 col-md-pull-9 col-lg-pull-8">
               <ul className="list-unstyled">
                 <li>Home</li>
                 <li>Collections</li>
                 <li>LIVE Chats</li>
               </ul>
               <CategoriesMenuContainer />
-            </div>
-            <div className="col-sm-8">
-              <FeedContainer />
             </div>
           </div>
           {children}
