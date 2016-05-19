@@ -1,1 +1,1 @@
-export const API_ROOT = '/api/v1/';
+export const API_ROOT = 'https://api.producthunt.com/v1/';
