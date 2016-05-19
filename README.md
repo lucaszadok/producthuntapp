@@ -15,18 +15,6 @@
 
 ### Development
 
-To properly access the Product Hunt API we use a [NGINX] server to make a proxy pass, so you can copy or link our configuration.
-
-Make Symbolic Link:
-```sh
-$ ln -s producthuntapp/config/nginx/nginx-dev.conf /link/to/your/nginx/server/dev.conf
-```
-
-Add path on hosts (/etc/hosts):
-```sh
-dev.producthunt.com 127.0.0.1
-```
-
 Install Dependencies:
 ```sh
 $ npm install
